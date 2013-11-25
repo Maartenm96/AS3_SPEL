@@ -19,7 +19,8 @@ package
 		public var naarBoven: Boolean = false;
 		public var cirkel: Sprite = new Sprite();
 		public var velocityX: int = 3; //aantal pixels/frame per seconde horizontaal
-		public var xpunten:int=vindRandpuntenCirkelX();
+		public var xpunten:int = vindRandpuntenCirkelX();
+		//public var testpuntX:int = 100 * Math.cos(Math.PI / 2);
 		
 
 		
@@ -45,7 +46,7 @@ package
 		{
 			var radius: Number = 100;
 			var middelpuntX: int = 400 ;
-			var cirkelformuleX: Number = middelpuntX + radius * Math.cos(2 * Math.PI * i / aantalpunten);
+			var cirkelformuleX: Number = middelpuntX +( radius * Math.cos(2 * Math.PI * i / aantalpunten));
 			var aantalpunten: int = 10;
 			
 			for (var i: int = 0; i < aantalpunten; i++)
@@ -62,13 +63,14 @@ package
 		
 		public function beweegX(e:Event):void // Heeft als resultaat dat het figuur binnen de maximaal aangegeven waarden blijft
 		{
-			stuiterbal.x += velocityX;
+			stuiterbal.x = stuiterbal.x +3;
 			if (naarLinks == false)
 			{
+				trace(); "mnmnmnmnmn";
 				if (stuiterbal.x > xpunten)
 				
 				{
-					trace "fdsdfsd";
+					trace(); "fdsdfsd";
 					velocityX = velocityX * -1;
 					naarLinks = true;
 				}
@@ -78,7 +80,7 @@ package
 			{
 				if (stuiterbal.x < xpunten)
 				{
-					trace "opopopopop";
+					trace(); "opopopopop";
 					velocityX = velocityX * -1
 					naarLinks = false;
 				}
