@@ -63,12 +63,32 @@ package
 		public function beweegX(e:Event):void // Heeft als resultaat dat het figuur binnen de maximaal aangegeven waarden blijft
 		{
 			stuiterbal.x += velocityX;
-			if (stuiterbal.x = xpunten)
+			if (naarLinks == false)
 			{
-				velocityX = velocityX * -1
+				if (stuiterbal.x = xpunten)
+				
+				{
+					velocityX = velocityX * -1;
+					naarLinks = true;
+				}
+				else
+				{
+					stuiterbal.x += velocityX;
+				}
 			}
-			
-		}	
+			else if(naarLinks == true)
+			{
+				if (stuiterbal.x = xpunten)
+				{
+					velocityX = velocityX * -1
+					naarLinks = false;
+				}
+				else
+				{
+					stuiterbal.x += velocityX;
+				}
+			}
+		}		
 		
 	}
 	
