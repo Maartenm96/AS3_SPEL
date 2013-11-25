@@ -65,30 +65,26 @@ package
 			stuiterbal.x += velocityX;
 			if (naarLinks == false)
 			{
-				if (stuiterbal.x = xpunten)
+				if (stuiterbal.x > xpunten)
 				
 				{
+					trace "fdsdfsd";
 					velocityX = velocityX * -1;
 					naarLinks = true;
 				}
-				else
-				{
-					stuiterbal.x += velocityX;
-				}
+				
 			}
 			else if(naarLinks == true)
 			{
-				if (stuiterbal.x = xpunten)
+				if (stuiterbal.x < xpunten)
 				{
+					trace "opopopopop";
 					velocityX = velocityX * -1
 					naarLinks = false;
 				}
-				else
-				{
-					stuiterbal.x += velocityX;
-				}
+				
 			}
-		}		
+		}	
 		
 	}
 	
