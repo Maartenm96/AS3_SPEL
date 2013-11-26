@@ -1,51 +1,51 @@
 package 
 {
-	import flash.display.Sprite;
-	import flash.events.Event;
-	import flash.events.MouseEvent;
-	import flash.geom.Point;
-	import flash.net.URLVariables;
-	import flash.text.TextField;
-	
-	/**
-	 * ...
-	 * @author Maarten
-	 */
-	public class Main extends Sprite 
-	{
-		
-		public var stuiterbal: Sprite = new Sprite();
-		public var naarLinks: Boolean = false;
-		public var naarBoven: Boolean = false;
-		public var cirkel: Sprite = new Sprite();
-		public var velocityX: int = 3; //aantal pixels/frame per seconde horizontaal
-		public var xpunten:int = 1;
-		
+        import flash.display.Sprite;
+        import flash.events.Event;
+        import flash.events.MouseEvent;
+        import flash.geom.Point;
+        import flash.net.URLVariables;
+        import flash.text.TextField;
+        
+        /**
+         * ...
+         * @author Maarten
+         */
+        public class Main extends Sprite 
+        {
+                
+                public var stuiterbal: Sprite = new Sprite();
+                public var naarLinks: Boolean = false;
+                public var naarBoven: Boolean = false;
+                public var cirkel: Sprite = new Sprite();
+                public var velocityX: int = 3; //aantal pixels/frame per seconde horizontaal
+                public var xpunten:int = 1;
+                
 
-		
-		
-		public function Main():void 
-		{
-			stuiterbal.x = 400
-			stuiterbal.y = 300
-			stuiterbal.graphics.beginFill(0x49A116, 1);
-			stuiterbal.graphics.drawCircle (0, 0, 10);
-			addChild(stuiterbal) //addchild buiten main functie werkt niet (?)
-			cirkel.graphics.beginFill(0x000000, 0.2);
-			cirkel.graphics.drawCircle(400, 300, 100)
-			addChild(cirkel)
-			
-			stuiterbal.addEventListener(Event.ENTER_FRAME, beweegX)
-			
-			
-			
-		}
-		
-		public function vindmaxwaardenXcirkel (Xmidden:int, radius:Number, n:Number = 10 ):int
-		{
-			var cirkelformule:Number = Math.PI * 2 / n
+                
+                
+                public function Main():void 
+                {
+                        stuiterbal.x = 400
+                        stuiterbal.y = 300
+                        stuiterbal.graphics.beginFill(0x49A116, 1);
+                        stuiterbal.graphics.drawCircle (0, 0, 10);
+                        addChild(stuiterbal) //addchild buiten main functie werkt niet (?)
+                        cirkel.graphics.beginFill(0x000000, 0.2);
+                        cirkel.graphics.drawCircle(400, 300, 100)
+                        addChild(cirkel)
+                        
+                        stuiterbal.addEventListener(Event.ENTER_FRAME, beweegX)
+                        
+                        
+                        
+                }
+                
+                public function vindmaxwaardenXcirkel (Xmidden:int, radius:Number, n:Number = 10 ):int
+                {
+                        var cirkelformule:Number = Math.PI * 2 / n
             //var maxXwaardencirkel:Array = new Array (n) // 
-			var maxXwaardencirkel: int = new int;
+                        var maxXwaardencirkel: int = new int;
             var i:int = -1; // interval
             while (i++ < n ) // herhaal met een verandert interval
                 {
@@ -54,37 +54,38 @@ package
                     maxXwaardencirkel = Xmidden + (berekenXpunten); // voeg de uitkomst van de formule toe aan de coordinaten van het beginpunt
                 }
                         return maxXwaardencirkel; // geef de waardes ter
-			
-			
-		}
-		
-		
-		public function beweegX(e:Event):void // Heeft als resultaat dat het figuur binnen de maximaal aangegeven waarden blijft
-		{
-			xpunten = vindmaxwaardenXcirkel(400, 100, 10);
-			var arie:Array = new Array();
-			arie.push = 
-			
-			stuiterbal.x += velocityX;
-			if (naarLinks == false)
-			{
-				if (stuiterbal.x > xpunten)
-				{
-					velocityX = velocityX * -1;
-					naarLinks = true;
-				}
-			}
-			else
-			{
-				if (stuiterbal.x < xpunten)
-				{
-					velocityX = velocityX * -1
-					naarLinks = false;
-				}
-			}
+                        
+                        
+                }
+                
+                
+                public function beweegX(e:Event):void // Heeft als resultaat dat het figuur binnen de maximaal aangegeven waarden blijft
+                {
+                        xpunten = vindmaxwaardenXcirkel(400, 100, 10);
+                        var arie:Array = new Array();
+                        arie.push (xpunten)
+						trace (arie)
+                        
+                        stuiterbal.x += velocityX;
+                        if (naarLinks == false)
+                        {
+                                if (stuiterbal.x > xpunten)
+                                {
+                                        velocityX = velocityX * -1;
+                                        naarLinks = true;
+                                }
+                        }
+                        else
+                        {
+                                if (stuiterbal.x < xpunten)
+                                {
+                                        velocityX = velocityX * -1
+                                        naarLinks = false;
+                                }
+                        }
  
-		}	
+                }        
 
-	} 
-	
+        } 
+        
 }
