@@ -18,7 +18,7 @@ package
                 public var naarLinks: Boolean = false;
                 public var naarBoven: Boolean = false;
                 public var cirkel: Sprite = new Sprite();
-                public var velocityX: int = 3; //aantal pixels/frame per seconde horizontaal
+                public var velocityX: int = 6; //aantal pixels/frame per seconde horizontaal
                 public var xpunten:int = 0;
                 
 
@@ -46,6 +46,7 @@ package
                         var middelpuntX: int = 400 ;
                         var cirkelformuleX: int = new int();
 						var hoek:Number = 2 * Math.PI;
+						
 
                        
                         for (var i: int = 0; i < 10; i++)
@@ -68,7 +69,7 @@ package
                         arie.push (xpunten);
                         
                         stuiterbal.x += velocityX;
-                        
+                       
                         
                         if (stuiterbal.x >= xpunten - 10)
                                 {
@@ -76,7 +77,7 @@ package
                                         
                                 }
                         
-                        if (stuiterbal.x == xpunten + 10)
+                        if (stuiterbal.x <= 310)
                                 {
                                         velocityX = velocityX * -1
                                         
