@@ -18,9 +18,11 @@ package
                 public var stuiterbal: Sprite = new Sprite();
                 public var naarLinks: Boolean = false;
                 public var naarBoven: Boolean = false;
-                public var velocityX: int = 3; //aantal pixels/frame per seconde horizontaal
-                public var velocityY: int = 3;
+                public var velocityX: int = 5; //aantal pixels/frame per seconde horizontaal
+                public var velocityY: int = 5;
                 public var cirkel: Sprite = new Sprite();
+				public var nogeenstuiterbal:Sprite = new Sprite();
+				
                 
                 
                 public function Main():void 
@@ -37,11 +39,11 @@ package
                 
                 stuiterbal.x = 400
                 stuiterbal.y = 300
-                stuiterbal.graphics.beginFill(0x49A116, 1);
+                stuiterbal.graphics.beginFill(0x000000, 1);
                 stuiterbal.graphics.drawCircle (0, 0, 10);
-                addChild(stuiterbal) //addchild buiten main functie werkt niet (?)
-                cirkel.graphics.beginFill(0x000000, 0.2);
-                cirkel.graphics.drawCircle(400, 300, 100)
+                addChild(stuiterbal)
+                cirkel.graphics.beginFill(0x000000, 0.1);
+                cirkel.graphics.drawCircle(400, 300, 150)
                 addChild(cirkel)       
                 
                 
@@ -50,6 +52,7 @@ package
                 stuiterbal.addEventListener(Event.ENTER_FRAME, beweegBinnenCirkelY)
                 stuiterbal.addEventListener(Event.ENTER_FRAME, beweegBinnenCirkelX)
                 stuiterbal.addEventListener(MouseEvent.CLICK, verdwijnen)
+				trace(stuiterbal.x, stuiterbal.y)
                 
                 
                 
@@ -155,9 +158,10 @@ package
                         stuiterbal.visible = false;
                 
                 }
+				
                 public function beweegBinnenCirkelX (e:Event):void // beweeg binnen de cirkel
                 {
-						var radius: int = 100;
+						var radius: int = 150;
                         stuiterbal.x += velocityX;
                         if (naarLinks == false)
                         {
@@ -165,6 +169,7 @@ package
                                 {
                                         velocityX = velocityX * -1;
                                         naarLinks = true;
+										velocityX = velocityX * Math.random()
                                 }
                         }
                         else
@@ -173,13 +178,14 @@ package
                                 {
                                         velocityX = velocityX * -1
                                         naarLinks = false;
+										velocityX = velocityX * Math.random()
                                 }
                         }
                 }
                 
 				public function beweegBinnenCirkelY (e:Event):void // beweeg binnen de cirkel
                 {
-						var radius: int = 100;
+						var radius: int = 150;
                         stuiterbal.y += velocityY;
                         if (naarBoven == false)
                         {
@@ -187,6 +193,7 @@ package
                                 {
                                         velocityY = velocityY * -1;
                                         naarBoven = true;
+										velocityX = velocityY * Math.random()
                                 }
                         }
                         else
@@ -195,9 +202,12 @@ package
                                 {
                                         velocityY = velocityY * -1
                                         naarBoven = false;
+										velocityX = velocityY * Math.random()
                                 }
                         }
                 }
+				
+				
 				
         }
         
